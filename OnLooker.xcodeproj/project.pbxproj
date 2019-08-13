@@ -76,6 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2599BA5823034C56002E6FAB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2599BA5923034C5D002E6FAB /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2599BA5923034C5D002E6FAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25E607DB22FCC00900E67B71 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		25E6079E22FCBFC700E67B71 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +115,13 @@
 		25E607A922FCBFC700E67B71 /* OnLooker */ = {
 			isa = PBXGroup;
 			children = (
+				2599BA5823034C56002E6FAB /* Main */,
 				25E607AA22FCBFC700E67B71 /* AppDelegate.swift */,
 				25E607AE22FCBFC700E67B71 /* Main.storyboard */,
 				25E607B422FCBFC900E67B71 /* Assets.xcassets */,
 				25E607B622FCBFC900E67B71 /* LaunchScreen.storyboard */,
 				25E607B922FCBFC900E67B71 /* Info.plist */,
 				25E607B122FCBFC700E67B71 /* OnLooker.xcdatamodeld */,
-				25E607DB22FCC00900E67B71 /* MainViewController.swift */,
 			);
 			path = OnLooker;
 			sourceTree = "<group>";

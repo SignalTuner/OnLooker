@@ -18,8 +18,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         videoTableView.delegate = self
         videoTableView.dataSource = self
-
-        // Do any additional setup after loading the view.
     }
     
 
