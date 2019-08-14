@@ -12,6 +12,7 @@ import WebKit
 class VideoViewController: UIViewController {
 
     @IBOutlet weak var videoWebView: WKWebView!
+    var urlSegue:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class VideoViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         
-        let myURL = URL(string:"https://www.apple.com")
+        let myURL = URL(string: urlSegue)
         let myRequest = URLRequest(url: myURL!)
         videoWebView.load(myRequest)
     }
