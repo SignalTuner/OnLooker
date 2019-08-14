@@ -43,7 +43,7 @@ extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath) 
         cell.textLabel?.text = String(arr[indexPath.row])
         return cell
     }
