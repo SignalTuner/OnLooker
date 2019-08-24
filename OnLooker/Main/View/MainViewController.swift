@@ -12,6 +12,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var videoTableView: UITableView!
     var arr = [1,2,3,4,5,6]
+    let sections = ["pizza", "deep dish pizza", "calzone"]
+    let items = [["Margarita", "BBQ Chicken"], ["sausage", "meat lovers", "veggie lovers"], ["sausage", "chicken pesto", "prawns", "mushrooms"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         videoTableView.delegate = self
         videoTableView.dataSource = self
     }
-    
 
     // MARK: - Navigation
 
@@ -30,21 +31,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             vc?.urlSegue = "http://www.apple.com"
         }
     }
-
 }
+
+// MARK: - Tableview Datasource
 
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return items[section].count
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
     }
 }
+
+// MARK: - Tableview Delegate
 
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath) 
-        cell.textLabel?.text = String(arr[indexPath.row])
+        cell.textLabel?.text = items[indexPath.section][indexPath.row]
         return cell
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
 }
