@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>843569825634-hpbnn8pveo2r0pk7fj597f83lkvil33a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.843569825634-hpbnn8pveo2r0pk7fj597f83lkvil33a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyClis56V8wV8t6O-s5e8rZ8arJOIuSdzHw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>843569825634</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>JalIrani.OnLooker</string>
+	<key>PROJECT_ID</key>
+	<string>onlooker-6689e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>onlooker-6689e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:843569825634:ios:f31b67d20526eb25870e3b</string>
+	<key>DATABASE_URL</key>
+	<string>https://onlooker-6689e.firebaseio.com</string>
+</dict>
+</plist>

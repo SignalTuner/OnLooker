@@ -1,0 +1,6 @@
+framework module Pods_OnLookerTests {
+  umbrella header "Pods-OnLookerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
