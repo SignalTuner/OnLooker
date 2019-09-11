@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,9 +18,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var items = [["High Speed LA Chase"], ["Aruba", "Barber Shop in Fed Hill, MD", "OnLkr HQ"]]
     var tempSections = ""
     var tempItems:[String] = []
+    var ref: DatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference().child("url")
+        ref.observe(DataEventType.value, with: { (snapshot) in
+            if let url = snapshot.value as? String {
+                print(url)
+            }
+        })
         
         videoTableView.delegate = self
         videoTableView.dataSource = self
@@ -30,12 +40,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
             footerView.backgroundColor = .clear
             let upgradeButton = UIButton()
-            upgradeButton.setTitle("Upgrade now", for: .normal)
+            upgradeButton.setTitle("Remove/Add Section", for: .normal)
             upgradeButton.sizeToFit()
-            upgradeButton.frame = CGRect(x: footerView.bounds.size.width/2, y:footerView.bounds.size.height/2, width: footerView.bounds.size.width/3, height: footerView.bounds.size.height)
+            upgradeButton.frame = CGRect(x: footerView.bounds.size.width/2, y:footerView.bounds.size.height/2, width: footerView.bounds.size.width/2, height: footerView.bounds.size.height)
             upgradeButton.center.x = footerView.center.x
             upgradeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            upgradeButton.layer.cornerRadius = 24.0;
+            upgradeButton.layer.cornerRadius = 12.0;
             upgradeButton.layer.borderWidth = 2.00
             upgradeButton.setTitleColor(.white, for: .normal)
             upgradeButton.backgroundColor = .black
