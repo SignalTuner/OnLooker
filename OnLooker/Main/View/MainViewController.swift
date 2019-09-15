@@ -18,16 +18,45 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var items = [["High Speed LA Chase"], ["Aruba", "Barber Shop in Fed Hill, MD", "OnLkr HQ"]]
     var tempSections = ""
     var tempItems:[String] = []
+    var streamList:[Stream] = []
     var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference().child("url")
-        ref.observe(DataEventType.value, with: { (snapshot) in
-            if let url = snapshot.value as? String {
-                print(url)
+//        ref = Database.database().reference().child("url")
+//        ref.observe(DataEventType.value, with: { (snapshot) in
+//            if let url = snapshot.value as? String {
+//                print(url)
+//            }
+//        })
+        
+//        ref = Database.database().reference().child("streams")
+//        ref.observe(DataEventType.value, with: { (snapshot) in
+//            if let someObj = snapshot as? NSObject {
+//                print(someObj)
+//                print("ye")
+//            }
+//        })
+        
+//        let childRef = Database.database().reference(withPath: "streams")
+//        print(childRef.key)
+        
+        ref = Database.database().reference(withPath: "streams")
+        
+        ref.observe(.value, with: { snapshot in
+            var newItems: [Stream] = []
+            for child in snapshot.children {
+                print(child)
+                if let dataSnap = child as? DataSnapshot {
+                    if let item = Stream(snapshot: dataSnap) {
+                        print(item.name)
+                    }
+                    print(dataSnap.key)
+                    print("pooooop")
+                    //newItems.append(groceryItem)
+                }
             }
         })
         

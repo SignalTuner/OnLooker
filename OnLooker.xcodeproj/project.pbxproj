@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		258E773C2328385500B342BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258E77392328385500B342BA /* GoogleService-Info.plist */; };
 		25AE9D66230497D50003CBED /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE9D65230497D50003CBED /* VideoViewController.swift */; };
 		25AE9D69230498BE0003CBED /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AE9D68230498BE0003CBED /* WebKit.framework */; };
+		25C706DD232DE688004EB9D0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C706DC232DE688004EB9D0 /* Stream.swift */; };
 		25E607AB22FCBFC700E67B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607AA22FCBFC700E67B71 /* AppDelegate.swift */; };
 		25E607B022FCBFC700E67B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E607AE22FCBFC700E67B71 /* Main.storyboard */; };
 		25E607B322FCBFC700E67B71 /* OnLooker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25E607B122FCBFC700E67B71 /* OnLooker.xcdatamodeld */; };
@@ -47,6 +48,7 @@
 		258E77392328385500B342BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25AE9D65230497D50003CBED /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		25AE9D68230498BE0003CBED /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		25C706DC232DE688004EB9D0 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		25E607A722FCBFC700E67B71 /* OnLooker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnLooker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E607AA22FCBFC700E67B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E607AF22FCBFC700E67B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		25C706DB232DE662004EB9D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25C706DC232DE688004EB9D0 /* Stream.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		25E6079E22FCBFC700E67B71 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		25E607A922FCBFC700E67B71 /* OnLooker */ = {
 			isa = PBXGroup;
 			children = (
+				25C706DB232DE662004EB9D0 /* Models */,
 				25AE9D63230497BC0003CBED /* Video */,
 				2599BA5823034C56002E6FAB /* Main */,
 				25E607AA22FCBFC700E67B71 /* AppDelegate.swift */,
@@ -209,7 +220,6 @@
 				63FAE4D725774D667638A5D0 /* Pods-OnLookerUITests.debug.xcconfig */,
 				A2A6BC045D8D2622D7D43DB7 /* Pods-OnLookerUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -441,6 +451,7 @@
 				25E607B322FCBFC700E67B71 /* OnLooker.xcdatamodeld in Sources */,
 				25AE9D66230497D50003CBED /* VideoViewController.swift in Sources */,
 				25E607AB22FCBFC700E67B71 /* AppDelegate.swift in Sources */,
+				25C706DD232DE688004EB9D0 /* Stream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
