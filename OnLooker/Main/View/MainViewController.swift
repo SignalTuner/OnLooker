@@ -12,102 +12,67 @@ import Firebase
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
-    var arr = [1,2,3,4,5,6]
     var toggle = true
     var sections = ["BREAKING VIDEO", "Other Videos"]
-    var items = [["High Speed LA Chase"], ["Aruba", "Barber Shop in Fed Hill, MD", "OnLkr HQ"]]
     var tempSections = ""
     var tempItems:[String] = []
-    var streamList:[Stream] = []
+    var streamList:[[Stream]] = [[],[]]
     var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        ref = Database.database().reference().child("url")
-//        ref.observe(DataEventType.value, with: { (snapshot) in
-//            if let url = snapshot.value as? String {
-//                print(url)
-//            }
-//        })
-        
-//        ref = Database.database().reference().child("streams")
-//        ref.observe(DataEventType.value, with: { (snapshot) in
-//            if let someObj = snapshot as? NSObject {
-//                print(someObj)
-//                print("ye")
-//            }
-//        })
-        
-//        let childRef = Database.database().reference(withPath: "streams")
-//        print(childRef.key)
-        
         ref = Database.database().reference(withPath: "streams")
         
         ref.observe(.value, with: { snapshot in
-            var newItems: [Stream] = []
+            var newItems:[[Stream]] = [[],[]]
             for child in snapshot.children {
-                print(child)
                 if let dataSnap = child as? DataSnapshot {
                     if let item = Stream(snapshot: dataSnap) {
-                        print(item.name)
+                        if item.type == "important" && item.active {
+                            newItems[0].append(item)
+                        } else if item.active {
+                            newItems[1].append(item)
+                        }
                     }
-                    print(dataSnap.key)
-                    print("pooooop")
-                    //newItems.append(groceryItem)
                 }
             }
+            self.streamList = newItems
+            
+            // Allows sections to be removed
+            if self.streamList[0].count == 0 && self.sections.count > 1 {
+                self.sections.removeFirst()
+                self.streamList.removeFirst()
+            } else if self.sections.count == 1 && self.streamList.count == 2 {
+                self.sections.insert("BREAKING NEWS", at: 0)
+            }
+            
+            
+            self.videoTableView.reloadData()
         })
         
         videoTableView.delegate = self
         videoTableView.dataSource = self
     }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if (sections.count > 1 && section == 1) || sections.count < 2 {
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-            footerView.backgroundColor = .clear
-            let upgradeButton = UIButton()
-            upgradeButton.setTitle("Remove/Add Section", for: .normal)
-            upgradeButton.sizeToFit()
-            upgradeButton.frame = CGRect(x: footerView.bounds.size.width/2, y:footerView.bounds.size.height/2, width: footerView.bounds.size.width/2, height: footerView.bounds.size.height)
-            upgradeButton.center.x = footerView.center.x
-            upgradeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            upgradeButton.layer.cornerRadius = 12.0;
-            upgradeButton.layer.borderWidth = 2.00
-            upgradeButton.setTitleColor(.white, for: .normal)
-            upgradeButton.backgroundColor = .black
-            upgradeButton.tintColor = .black
-            upgradeButton.layer.borderColor = UIColor.clear.cgColor
-            footerView.addSubview(upgradeButton)
-            return footerView
-        } else {
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            return footerView
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if (sections.count > 1 && section == 1) || sections.count == 1 {
-            return 140
-        } else {
-            return 0
-        }
-    }
-    
-    @objc func buttonAction(sender: UIButton!) {
-        toggle = toggle ? false : true
-        if toggle {
-            sections.insert(tempSections, at: 0)
-            items.insert(tempItems, at: 0)
-        } else {
-            tempSections = sections.removeFirst()
-            tempItems = items.removeFirst()
-        }
-        videoTableView.reloadData()
-        print("button action selected and this is toggle: \(toggle)")
-    }
+
+//    func organizeSections() {
+//        if streamList[0].count == 0 && sections.count > 1 {
+//            self.sections.removeFirst()
+//            self.streamList.removeFirst()
+//            print("organize sections: \(sections)")
+//            for i in streamList[0] {
+//                print(i.name)
+//            }
+//            self.toggle = false
+//            //self.videoTableView.reloadData()
+//        }
+//        if streamList[0].count > 0 && sections.count <= 1 {
+//            self.sections.insert("BREAKING VIDEO", at: 0)
+//            self.toggle = true
+//        }
+//        print("Toggle is set to: \(self.toggle)")
+//    }
 
     // MARK: - Navigation
 
@@ -115,7 +80,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is VideoViewController {
             let vc = segue.destination as? VideoViewController
-            vc?.urlSegue = "https://losangeles.cbslocal.com/live/"
+            let streamIndex = videoTableView.indexPathForSelectedRow?.row
+            let streamSection = videoTableView.indexPathForSelectedRow?.section
+            print(streamList[streamSection!][streamIndex!].url)
+            vc?.urlSegue = streamList[streamSection!][streamIndex!].url
         }
     }
 }
@@ -124,9 +92,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension MainViewController {
     
+    // Bug here
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].count
+        return streamList[section].count
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -137,8 +107,8 @@ extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath) 
-        cell.textLabel?.text = items[indexPath.section][indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath)
+        cell.textLabel?.text = streamList[indexPath.section][indexPath.row].name
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
