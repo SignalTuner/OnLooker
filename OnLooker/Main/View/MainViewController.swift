@@ -73,15 +73,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        }
 //        print("Toggle is set to: \(self.toggle)")
 //    }
+    
+    func getCurrentDate() -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is VideoViewController {
+            
             let vc = segue.destination as? VideoViewController
             let streamIndex = videoTableView.indexPathForSelectedRow?.row
             let streamSection = videoTableView.indexPathForSelectedRow?.section
+            streamList[streamSection!][streamIndex!].ref?.updateChildValues([
+                "lastViewed": getCurrentDate()
+            ])
             print(streamList[streamSection!][streamIndex!].url)
             vc?.urlSegue = streamList[streamSection!][streamIndex!].url
         }
