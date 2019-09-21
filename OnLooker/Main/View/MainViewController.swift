@@ -12,7 +12,6 @@ import Firebase
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
-    var toggle = true
     var sections = ["BREAKING VIDEO", "Other Videos"]
     var tempSections = ""
     var tempItems:[String] = []
@@ -55,24 +54,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         videoTableView.delegate = self
         videoTableView.dataSource = self
     }
-
-//    func organizeSections() {
-//        if streamList[0].count == 0 && sections.count > 1 {
-//            self.sections.removeFirst()
-//            self.streamList.removeFirst()
-//            print("organize sections: \(sections)")
-//            for i in streamList[0] {
-//                print(i.name)
-//            }
-//            self.toggle = false
-//            //self.videoTableView.reloadData()
-//        }
-//        if streamList[0].count > 0 && sections.count <= 1 {
-//            self.sections.insert("BREAKING VIDEO", at: 0)
-//            self.toggle = true
-//        }
-//        print("Toggle is set to: \(self.toggle)")
-//    }
     
     func getCurrentDate() -> String {
         let date = Date()
@@ -83,8 +64,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is VideoViewController {
             
