@@ -12,10 +12,8 @@ import Firebase
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
-    var sections = ["BREAKING VIDEO", "Other Videos"]
-    var tempSections = ""
-    var tempItems:[String] = []
-    var streamList:[[Stream]] = [[],[]]
+    var sections = ["Breaking Video", "Archived", "Other Videos"]
+    var streamList:[[Stream]] = [[], [], []]
     var ref: DatabaseReference!
     
     
@@ -25,14 +23,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         ref = Database.database().reference(withPath: "streams")
         
         ref.observe(.value, with: { snapshot in
-            var newItems:[[Stream]] = [[],[]]
+            var newItems:[[Stream]] = [[], [], []]
             for child in snapshot.children {
                 if let dataSnap = child as? DataSnapshot {
                     if let item = Stream(snapshot: dataSnap) {
                         if item.type == "important" && item.active {
                             newItems[0].append(item)
-                        } else if item.active {
+                        } else if item.type == "archived" && item.active {
                             newItems[1].append(item)
+                        } else if item.active {
+                            newItems[2].append(item)
                         }
                     }
                 }
@@ -43,7 +43,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if self.streamList[0].count == 0 && self.sections.count > 1 {
                 self.sections.removeFirst()
                 self.streamList.removeFirst()
-            } else if self.sections.count == 1 && self.streamList.count == 2 {
+            } else if self.sections.count == 2 && self.streamList.count == 3 {
                 self.sections.insert("BREAKING NEWS", at: 0)
             }
             
