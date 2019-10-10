@@ -8,6 +8,7 @@ target 'OnLooker' do
   # Pods for OnLooker
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
 
   target 'OnLookerTests' do
     inherit! :search_paths

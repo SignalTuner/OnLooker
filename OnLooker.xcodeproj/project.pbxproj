@@ -45,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		01BC4684A9E243F8A4C4C33B /* Pods_OnLookerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnLookerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		252F5A3C234FDEF3008EC837 /* OnLooker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnLooker.entitlements; sourceTree = "<group>"; };
 		258E77392328385500B342BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25AE9D65230497D50003CBED /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		25AE9D68230498BE0003CBED /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -178,6 +179,7 @@
 		25E607A922FCBFC700E67B71 /* OnLooker */ = {
 			isa = PBXGroup;
 			children = (
+				252F5A3C234FDEF3008EC837 /* OnLooker.entitlements */,
 				25C706DB232DE662004EB9D0 /* Models */,
 				25AE9D63230497BC0003CBED /* Video */,
 				2599BA5823034C56002E6FAB /* Main */,
@@ -627,7 +629,9 @@
 			baseConfigurationReference = D8F49DEF6F489BC5BD0E09F2 /* Pods-OnLooker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OnLooker/OnLooker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6T3P5R6B65;
 				INFOPLIST_FILE = OnLooker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -646,7 +650,9 @@
 			baseConfigurationReference = CE263976A5F0426235E7AD3F /* Pods-OnLooker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OnLooker/OnLooker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6T3P5R6B65;
 				INFOPLIST_FILE = OnLooker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
