@@ -12,7 +12,7 @@ import Firebase
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
-    var sections = ["Breaking Video", "Archived", "Other Videos"]
+    var sections = ["Breaking Video", "Live Streams Available Now", "Previously Showcased Events"]
     var streamList:[[Stream]] = [[], [], []]
     var ref: DatabaseReference!
     
@@ -30,9 +30,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if item.type == "important" && item.active {
                             newItems[0].append(item)
                         } else if item.type == "archived" && item.active {
-                            newItems[1].append(item)
-                        } else if item.active {
                             newItems[2].append(item)
+                        } else if item.active {
+                            newItems[1].append(item)
                         }
                     }
                 }
@@ -53,6 +53,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         videoTableView.delegate = self
         videoTableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.red
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = .black
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        //header.textLabel?.font = header.textLabel?.font.withSize(20)
     }
     
     func getCurrentDate() -> String {
