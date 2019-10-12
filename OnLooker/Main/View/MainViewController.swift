@@ -63,6 +63,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //header.textLabel?.font = header.textLabel?.font.withSize(20)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
+    }
+    
     func getCurrentDate() -> String {
         let date = Date()
         let format = DateFormatter()
@@ -107,7 +111,7 @@ extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath) as! VideoTableViewCell
         cell.textLabel?.text = streamList[indexPath.section][indexPath.row].name
         return cell
     }
