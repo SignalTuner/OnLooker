@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		252513FB2352776900190CA5 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252513FA2352776900190CA5 /* VideoTableViewCell.swift */; };
+		25646AC32353B3DC00345AAE /* BreakingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25646AC22353B3DC00345AAE /* BreakingTableViewCell.swift */; };
 		258E773A2328385500B342BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258E77392328385500B342BA /* GoogleService-Info.plist */; };
 		258E773B2328385500B342BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258E77392328385500B342BA /* GoogleService-Info.plist */; };
 		258E773C2328385500B342BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258E77392328385500B342BA /* GoogleService-Info.plist */; };
@@ -48,6 +49,7 @@
 		01BC4684A9E243F8A4C4C33B /* Pods_OnLookerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnLookerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		252513FA2352776900190CA5 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		252F5A3C234FDEF3008EC837 /* OnLooker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnLooker.entitlements; sourceTree = "<group>"; };
+		25646AC22353B3DC00345AAE /* BreakingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingTableViewCell.swift; sourceTree = "<group>"; };
 		258E77392328385500B342BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25AE9D65230497D50003CBED /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		25AE9D68230498BE0003CBED /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				252513FA2352776900190CA5 /* VideoTableViewCell.swift */,
+				25646AC22353B3DC00345AAE /* BreakingTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				25E607B322FCBFC700E67B71 /* OnLooker.xcdatamodeld in Sources */,
 				25AE9D66230497D50003CBED /* VideoViewController.swift in Sources */,
 				25E607AB22FCBFC700E67B71 /* AppDelegate.swift in Sources */,
+				25646AC32353B3DC00345AAE /* BreakingTableViewCell.swift in Sources */,
 				25C706DD232DE688004EB9D0 /* Stream.swift in Sources */,
 				252513FB2352776900190CA5 /* VideoTableViewCell.swift in Sources */,
 			);

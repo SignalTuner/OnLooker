@@ -56,15 +56,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = UIColor.red
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        //header.textLabel?.font = header.textLabel?.font.withSize(20)
+        if let header = view as? UITableViewHeaderFooterView {
+            if section == 0 {
+                header.textLabel?.textAlignment = .center
+            }
+            header.textLabel?.textColor = .black
+            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        if indexPath.section == 0 {
+            return 130
+        } else {
+            return 60
+        }
     }
     
     func getCurrentDate() -> String {
@@ -96,7 +102,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension MainViewController {
     
-    // Bug here
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return streamList[section].count
     }
@@ -111,9 +116,18 @@ extension MainViewController {
 extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subVideoCell", for: indexPath) as! VideoTableViewCell
-        cell.textLabel?.text = streamList[indexPath.section][indexPath.row].name
-        return cell
+        var cellName = ""
+        if indexPath.section == 0 {
+            cellName = "breakingVideoCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! BreakingTableViewCell
+            cell.breakingNameLabel.text = streamList[indexPath.section][indexPath.row].name
+            return cell
+        } else {
+            cellName = "subVideoCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! VideoTableViewCell
+            cell.textLabel?.text = streamList[indexPath.section][indexPath.row].name
+            return cell
+        }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section]
