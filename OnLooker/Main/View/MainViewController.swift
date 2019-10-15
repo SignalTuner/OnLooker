@@ -12,7 +12,7 @@ import Firebase
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
-    var sections = ["Breaking Video", "Live Streams Available Now", "Previously Showcased Events"]
+    var sections = [" ", "Live Streams Available Now", "Previously Showcased Events"]
     var streamList:[[Stream]] = [[], [], []]
     var ref: DatabaseReference!
     
@@ -44,7 +44,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.sections.removeFirst()
                 self.streamList.removeFirst()
             } else if self.sections.count == 2 && self.streamList.count == 3 {
-                self.sections.insert("BREAKING NEWS", at: 0)
+                self.sections.insert("Breaking Video", at: 0)
             }
             
             
@@ -58,10 +58,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         if let header = view as? UITableViewHeaderFooterView {
             if section == 0 {
-                header.textLabel?.textAlignment = .center
+                let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 0, width: 145, height: 34));
+                let image = UIImage(named: "onlooker_logo.png");
+                imageViewGame.image = image;
+                header.contentView.addSubview(imageViewGame)
+            } else {
+                header.textLabel?.textColor = .black
+                header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             }
-            header.textLabel?.textColor = .black
-            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         }
     }
     
