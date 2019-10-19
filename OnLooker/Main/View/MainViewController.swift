@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 
-// Problem, deque is called before the section is removed, so changing is incorrect
-
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
@@ -72,17 +70,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             vw.addSubview(imageViewGame)
             return vw
         } else {
-            if let header = view as? UITableViewHeaderFooterView {
-                header.textLabel?.textColor = .black
-                header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-            }
             let vw = UIView()
             let label = UILabel(frame: CGRect(x: 14, y: 0, width: tableView.frame.width, height: 34))
             label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
             label.textAlignment = .left
             label.text = sections[section]
             vw.addSubview(label)
-            //vw.backgroundColor = .none
             return vw
         }
     }

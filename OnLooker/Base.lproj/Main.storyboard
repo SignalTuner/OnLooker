@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aU3-Fe-pps">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9sF-EZ-fxE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -69,7 +69,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="breakingNameLabel" destination="68L-Ah-uzr" id="DAB-Uu-Mm7"/>
-                                            <segue destination="wMp-fd-jgZ" kind="show" id="wjv-Tq-Dvd"/>
+                                            <segue destination="wMp-fd-jgZ" kind="showDetail" id="wjv-Tq-Dvd"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subVideoCell" rowHeight="60" id="Wv1-No-Xqx" customClass="VideoTableViewCell" customModule="OnLooker" customModuleProvider="target">
@@ -80,7 +80,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="wMp-fd-jgZ" kind="show" id="oH3-M4-YsB"/>
+                                            <segue destination="wMp-fd-jgZ" kind="showDetail" id="oH3-M4-YsB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -113,11 +113,11 @@
             <objects>
                 <viewController id="wMp-fd-jgZ" customClass="VideoViewController" customModule="OnLooker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nB3-om-PE2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6m-az-m0T">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -143,30 +143,12 @@
             </objects>
             <point key="canvasLocation" x="1656.521739130435" y="63.616071428571423"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NlO-Zn-9qJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aU3-Fe-pps" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FSf-V5-baf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9sF-EZ-fxE" kind="relationship" relationship="rootViewController" id="1Ec-yi-fHm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="27O-AO-ucF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-78.260869565217391" y="63.616071428571423"/>
-        </scene>
     </scenes>
     <resources>
         <image name="icon_streaming" width="48" height="34"/>
         <image name="live-status" width="24" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oH3-M4-YsB"/>
+        <segue reference="wjv-Tq-Dvd"/>
     </inferredMetricsTieBreakers>
 </document>
