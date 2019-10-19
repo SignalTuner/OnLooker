@@ -63,7 +63,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let vw = UIView()
-            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 0, width: 145, height: 34));
+            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 8, width: 145, height: 34));
             let image = UIImage(named: "onlooker_logo.png");
             imageViewGame.image = image;
             imageViewGame.tag = section
@@ -81,11 +81,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        print("willDisplayHeaderView called for section: \(section)")
-        if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = .black
-            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        }
+//        print("willDisplayHeaderView called for section: \(section)")
+//        if let header = view as? UITableViewHeaderFooterView {
+//            header.textLabel?.textColor = .black
+//            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+//        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
