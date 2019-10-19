@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+// Problem, deque is called before the section is removed, so changing is incorrect
+
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
@@ -44,7 +46,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.sections.removeFirst()
                 self.streamList.removeFirst()
             } else if self.sections.count == 2 && self.streamList.count == 3 {
-                self.sections.insert("Breaking Video", at: 0)
+                self.sections.insert(" ", at: 0)
             }
             
             
@@ -55,9 +57,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         videoTableView.dataSource = self
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        print("willDisplayHeaderView called for section: \(section)")
         if let header = view as? UITableViewHeaderFooterView {
-            if section == 0 {
+            if section == 0 && sections[section] == " " {
+                print("Image is displayed for: \(section)")
+                // Make text smaller to move image down
                 let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 0, width: 145, height: 34));
                 let image = UIImage(named: "onlooker_logo.png");
                 imageViewGame.image = image;
@@ -70,7 +75,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && sections.count == 3 {
             return 130
         } else {
             return 60
@@ -121,7 +126,8 @@ extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellName = ""
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && sections[indexPath.section] == " " {
+            print("Deque called: \(sections[0])")
             cellName = "breakingVideoCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! BreakingTableViewCell
             cell.breakingNameLabel.text = streamList[indexPath.section][indexPath.row].name

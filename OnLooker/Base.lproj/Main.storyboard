@@ -79,6 +79,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wMp-fd-jgZ" kind="show" id="oH3-M4-YsB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -131,6 +134,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KzU-WM-N7t"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TZi-Ph-ygR"/>
                     <connections>
                         <outlet property="videoWebView" destination="c6m-az-m0T" id="9b0-N3-Nbt"/>
                     </connections>
@@ -162,4 +166,7 @@
         <image name="icon_streaming" width="48" height="34"/>
         <image name="live-status" width="24" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="oH3-M4-YsB"/>
+    </inferredMetricsTieBreakers>
 </document>
