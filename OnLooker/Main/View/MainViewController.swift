@@ -63,7 +63,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let vw = UIView()
-            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 8, width: 145, height: 34));
+            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/2 - 72.5, y: 8, width: 145, height: 34));
             let image = UIImage(named: "onlooker_logo.png");
             imageViewGame.image = image;
             imageViewGame.tag = section
