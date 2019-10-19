@@ -62,28 +62,36 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         videoTableView.dataSource = self
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let vw = UIView()
+            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 0, width: 145, height: 34));
+            let image = UIImage(named: "onlooker_logo.png");
+            imageViewGame.image = image;
+            imageViewGame.tag = section
+            vw.addSubview(imageViewGame)
+            return vw
+        } else {
+            if let header = view as? UITableViewHeaderFooterView {
+                header.textLabel?.textColor = .black
+                header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            }
+            let vw = UIView()
+            let label = UILabel(frame: CGRect(x: 14, y: 0, width: tableView.frame.width, height: 34))
+            label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+            label.textAlignment = .left
+            label.text = sections[section]
+            vw.addSubview(label)
+            //vw.backgroundColor = .none
+            return vw
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         print("willDisplayHeaderView called for section: \(section)")
         if let header = view as? UITableViewHeaderFooterView {
-            if (section == 0 && sections.count == 3 && sections[section] == " ") ||
-                (section == 0 && sections.count == 2 && sections[section] == "Live Streams Available Now"){
-                print("Image is displayed for: \(section)")
-                print("This is the count: \(sections.count)")
-                // Make text smaller to move image down
-                let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 0, width: 145, height: 34));
-                let image = UIImage(named: "onlooker_logo.png");
-                imageViewGame.image = image;
-                imageViewGame.tag = section
-                header.contentView.addSubview(imageViewGame)
-            } else {
-                header.textLabel?.textColor = .black
-                header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-                if let viewWithTag = self.view.viewWithTag(section) {
-                    viewWithTag.removeFromSuperview()
-                } else {
-                    print("No!")
-                }
-            }
+            header.textLabel?.textColor = .black
+            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         }
     }
     
@@ -148,6 +156,7 @@ extension MainViewController {
         } else {
             cellName = "subVideoCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! VideoTableViewCell
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
             cell.textLabel?.text = streamList[indexPath.section][indexPath.row].name
             return cell
         }
