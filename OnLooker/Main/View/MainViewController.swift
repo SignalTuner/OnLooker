@@ -22,6 +22,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backgroundImage = UIImage(named: "onlooker_background_opacity.png")
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFill
+        self.videoTableView.backgroundView = imageView
+        
         ref = Database.database().reference(withPath: "streams")
         
         ref.observe(.value, with: { snapshot in
@@ -60,16 +65,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         print("willDisplayHeaderView called for section: \(section)")
         if let header = view as? UITableViewHeaderFooterView {
-            if section == 0 && sections[section] == " " {
+            if (section == 0 && sections.count == 3 && sections[section] == " ") ||
+                (section == 0 && sections.count == 2 && sections[section] == "Live Streams Available Now"){
                 print("Image is displayed for: \(section)")
+                print("This is the count: \(sections.count)")
                 // Make text smaller to move image down
                 let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/3, y: 0, width: 145, height: 34));
                 let image = UIImage(named: "onlooker_logo.png");
                 imageViewGame.image = image;
+                imageViewGame.tag = section
                 header.contentView.addSubview(imageViewGame)
             } else {
                 header.textLabel?.textColor = .black
                 header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+                if let viewWithTag = self.view.viewWithTag(section) {
+                    viewWithTag.removeFromSuperview()
+                } else {
+                    print("No!")
+                }
             }
         }
     }
