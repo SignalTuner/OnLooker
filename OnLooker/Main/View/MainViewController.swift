@@ -60,42 +60,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         videoTableView.dataSource = self
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            let vw = UIView()
-            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/2 - 72.5, y: 8, width: 145, height: 34));
-            let image = UIImage(named: "onlooker_logo.png");
-            imageViewGame.image = image;
-            imageViewGame.tag = section
-            vw.addSubview(imageViewGame)
-            return vw
-        } else {
-            let vw = UIView()
-            let label = UILabel(frame: CGRect(x: 14, y: 0, width: tableView.frame.width, height: 34))
-            label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-            label.textAlignment = .left
-            label.text = sections[section]
-            vw.addSubview(label)
-            return vw
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        print("willDisplayHeaderView called for section: \(section)")
-//        if let header = view as? UITableViewHeaderFooterView {
-//            header.textLabel?.textColor = .black
-//            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-//        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && sections.count == 3 {
-            return 130
-        } else {
-            return 60
-        }
-    }
-    
     func getCurrentDate() -> String {
         let date = Date()
         let format = DateFormatter()
@@ -132,6 +96,13 @@ extension MainViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && sections.count == 3 {
+            return 130
+        } else {
+            return 60
+        }
+    }
 }
 
 // MARK: - Tableview Delegate
@@ -141,7 +112,6 @@ extension MainViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellName = ""
         if indexPath.section == 0 && sections[indexPath.section] == " " {
-            print("Deque called: \(sections[0])")
             cellName = "breakingVideoCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! BreakingTableViewCell
             cell.breakingNameLabel.text = streamList[indexPath.section][indexPath.row].name
@@ -156,5 +126,24 @@ extension MainViewController {
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section]
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let vw = UIView()
+            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/2 - 72.5, y: 8, width: 145, height: 34));
+            let image = UIImage(named: "onlooker_logo.png");
+            imageViewGame.image = image;
+            imageViewGame.tag = section
+            vw.addSubview(imageViewGame)
+            return vw
+        } else {
+            let vw = UIView()
+            let label = UILabel(frame: CGRect(x: 14, y: 0, width: tableView.frame.width, height: 34))
+            label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+            label.textAlignment = .left
+            label.text = sections[section]
+            vw.addSubview(label)
+            return vw
+        }
     }
 }
