@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlooker_background_opacity" translatesAutoresizingMaskIntoConstraints="NO" id="ChJ-3d-3Ay">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlooker_background" translatesAutoresizingMaskIntoConstraints="NO" id="ChJ-3d-3Ay">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlooker_logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Pj-6q-896">
@@ -41,7 +41,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="onlooker_background_opacity" width="375" height="812"/>
+        <image name="onlooker_background" width="375" height="667"/>
         <image name="onlooker_logo" width="287" height="65"/>
     </resources>
 </document>
