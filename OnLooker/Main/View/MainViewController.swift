@@ -103,6 +103,15 @@ extension MainViewController {
             return 60
         }
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 && sections.count == 3 {
+            return UITableView.automaticDimension
+        } else if section == 0 && sections.count == 2 {
+            return 100
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
 }
 
 // MARK: - Tableview Delegate
@@ -128,13 +137,28 @@ extension MainViewController {
         return sections[section]
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
+        if section == 0 && sections.count == 3{
             let vw = UIView()
+            let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/2 - 72.5, y: 10, width: 145, height: 34));
+            let image = UIImage(named: "onlooker_logo.png");
+            imageViewGame.image = image;
+            imageViewGame.tag = section
+            vw.addSubview(imageViewGame)
+            return vw
+        } else if section == 0 && sections.count == 2{
+            let vw = UIView()
+            
             let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/2 - 72.5, y: 8, width: 145, height: 34));
             let image = UIImage(named: "onlooker_logo.png");
             imageViewGame.image = image;
             imageViewGame.tag = section
             vw.addSubview(imageViewGame)
+            
+            let label = UILabel(frame: CGRect(x: 14, y: imageViewGame.frame.height * 2, width: tableView.frame.width, height: 34))
+            label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+            label.textAlignment = .left
+            label.text = sections[section]
+            vw.addSubview(label)
             return vw
         } else {
             let vw = UIView()
