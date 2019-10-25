@@ -139,6 +139,7 @@ extension MainViewController {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 && sections.count == 3{
             let vw = UIView()
+            
             let imageViewGame = UIImageView(frame: CGRect(x: tableView.frame.width/2 - 72.5, y: 10, width: 145, height: 34));
             let image = UIImage(named: "onlooker_logo.png");
             imageViewGame.image = image;
@@ -162,6 +163,7 @@ extension MainViewController {
             return vw
         } else {
             let vw = UIView()
+            
             let label = UILabel(frame: CGRect(x: 14, y: 0, width: tableView.frame.width, height: 34))
             label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
             label.textAlignment = .left
