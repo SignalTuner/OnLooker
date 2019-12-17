@@ -12,10 +12,11 @@ import Firebase
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var videoTableView: UITableView!
+    @IBOutlet weak var shareButton: UIButton!
+    
     var sections = [" ", "Live Streams Available Now", "Previously Showcased Events"]
     var streamList:[[Stream]] = [[], [], []]
     var ref: DatabaseReference!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.videoTableView.backgroundView = imageView
         
         ref = Database.database().reference(withPath: "streams")
-        
+
         ref.observe(.value, with: { snapshot in
             var newItems:[[Stream]] = [[], [], []]
             for child in snapshot.children {
@@ -43,7 +44,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             self.streamList = newItems
-            
+
             // Allows sections to be removed
             if self.streamList[0].count == 0 && self.sections.count > 1 {
                 self.sections.removeFirst()
@@ -51,13 +52,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else if self.sections.count == 2 && self.streamList.count == 3 {
                 self.sections.insert(" ", at: 0)
             }
-            
-            
+
+
             self.videoTableView.reloadData()
         })
-        
+
         videoTableView.delegate = self
         videoTableView.dataSource = self
+        
+        
+        // customize button
+        // rgba(0,106,181,0.3)
+        shareButton.backgroundColor = UIColor(displayP3Red: 0/255.0, green: 106/255.0, blue: 181/255.0, alpha: 1.0)
+        shareButton.tintColor = .white
+        shareButton.layer.cornerRadius = 8.0
     }
     
     func getCurrentDate() -> String {
@@ -67,7 +75,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let formattedDate = format.string(from: date)
         return formattedDate
     }
-
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
+        print("button tapped")
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,9 +88,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let vc = segue.destination as? VideoViewController
             let streamIndex = videoTableView.indexPathForSelectedRow?.row
             let streamSection = videoTableView.indexPathForSelectedRow?.section
-            streamList[streamSection!][streamIndex!].ref?.updateChildValues([
-                "lastViewed": getCurrentDate()
-            ])
+//            streamList[streamSection!][streamIndex!].ref?.updateChildValues([
+//                "lastViewed": getCurrentDate()
+//            ])
             print(streamList[streamSection!][streamIndex!].url)
             vc?.urlSegue = streamList[streamSection!][streamIndex!].url
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9sF-EZ-fxE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9sF-EZ-fxE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,18 +89,33 @@
                                     <outlet property="delegate" destination="9sF-EZ-fxE" id="VEr-dX-vDd"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXo-gQ-kMr">
+                                <rect key="frame" x="20" y="811" width="374" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="roE-xM-Akp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Have a stream you want to share?"/>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="9sF-EZ-fxE" eventType="touchUpInside" id="Uc3-Pa-HxQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SmK-fr-0Qe" firstAttribute="top" secondItem="QHQ-gk-cBl" secondAttribute="top" id="8PS-Ca-c0p"/>
+                            <constraint firstItem="hXo-gQ-kMr" firstAttribute="centerX" secondItem="SmK-fr-0Qe" secondAttribute="centerX" id="8gF-Vi-Irr"/>
                             <constraint firstAttribute="bottom" secondItem="SmK-fr-0Qe" secondAttribute="bottom" id="QSb-sx-OXb"/>
+                            <constraint firstItem="hXo-gQ-kMr" firstAttribute="leading" secondItem="voo-c7-MJa" secondAttribute="leading" constant="20" id="SyU-yf-c7c"/>
                             <constraint firstItem="SmK-fr-0Qe" firstAttribute="leading" secondItem="QHQ-gk-cBl" secondAttribute="leading" id="Ue0-GC-OLS"/>
+                            <constraint firstItem="hXo-gQ-kMr" firstAttribute="bottom" secondItem="voo-c7-MJa" secondAttribute="bottom" constant="7" id="VSe-DG-hcr"/>
                             <constraint firstAttribute="trailing" secondItem="SmK-fr-0Qe" secondAttribute="trailing" id="bvU-Y2-yiQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="voo-c7-MJa"/>
                     </view>
                     <navigationItem key="navigationItem" id="BgP-yj-maY"/>
                     <connections>
+                        <outlet property="shareButton" destination="hXo-gQ-kMr" id="DMp-Yw-N5X"/>
                         <outlet property="videoTableView" destination="SmK-fr-0Qe" id="rDF-Ib-ObB"/>
                     </connections>
                 </viewController>
