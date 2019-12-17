@@ -171,6 +171,9 @@
                                 <rect key="frame" x="20" y="412.5" width="374" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <segue destination="1dV-Ee-s3x" kind="unwind" unwindAction="unwindFromMasterWithSegue:" id="R3Q-bk-JHR"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -186,6 +189,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoC-cA-bZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1dV-Ee-s3x" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1656.521739130435" y="760.71428571428567"/>
         </scene>

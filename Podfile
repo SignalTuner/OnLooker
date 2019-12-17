@@ -9,6 +9,7 @@ target 'OnLooker' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
+  pod 'Toast-Swift', '~> 5.0.1'
 
   target 'OnLookerTests' do
     inherit! :search_paths

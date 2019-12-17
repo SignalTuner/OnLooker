@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Toast_Swift
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -74,6 +75,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         format.dateFormat = "yyyy-MM-dd"
         let formattedDate = format.string(from: date)
         return formattedDate
+    }
+    
+    @IBAction func unwindFromMaster(segue: UIStoryboardSegue) {
+        self.view.makeToast("Link has been shared\nblah\nblash", duration: 5.0, position: .top)
     }
     
     @IBAction func shareButtonTapped(_ sender: Any) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Toast_Swift
 
 class ShareViewController: UIViewController, UITextFieldDelegate {
 
@@ -53,10 +54,12 @@ class ShareViewController: UIViewController, UITextFieldDelegate {
 //        }
 //    }
     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        guard let streamText = textField.text else { return false }
+        guard let streamText = textField.text, !streamText.isEmpty else { return false }
         print(streamText)
+        self.view.makeToast("This is a piece of toast")
         self.dismiss(animated: true, completion: nil)
         return true
     }
