@@ -98,6 +98,7 @@
                                 <state key="normal" title="Have a stream you want to share?"/>
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="9sF-EZ-fxE" eventType="touchUpInside" id="Uc3-Pa-HxQ"/>
+                                    <segue destination="Xr3-aq-JgJ" kind="showDetail" id="eKM-LS-tb9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -158,12 +159,42 @@
             </objects>
             <point key="canvasLocation" x="1656.521739130435" y="63.616071428571423"/>
         </scene>
+        <!--Share View Controller-->
+        <scene sceneID="yMj-10-Ukd">
+            <objects>
+                <viewController id="Xr3-aq-JgJ" customClass="ShareViewController" customModule="OnLooker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Vd-iO-Ity">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a stream" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikF-QT-MHt">
+                                <rect key="frame" x="20" y="412.5" width="374" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ikF-QT-MHt" firstAttribute="trailing" secondItem="8Vd-iO-Ity" secondAttribute="trailingMargin" id="N9a-hI-Gw0"/>
+                            <constraint firstItem="ikF-QT-MHt" firstAttribute="leading" secondItem="8Vd-iO-Ity" secondAttribute="leadingMargin" id="mac-5j-gIJ"/>
+                            <constraint firstItem="ikF-QT-MHt" firstAttribute="centerY" secondItem="8Vd-iO-Ity" secondAttribute="centerY" id="v28-az-15t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pUu-VC-sNG"/>
+                    </view>
+                    <connections>
+                        <outlet property="streamTextField" destination="ikF-QT-MHt" id="d7C-aA-nlI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZoC-cA-bZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1656.521739130435" y="760.71428571428567"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_streaming" width="48" height="34"/>
         <image name="live-status" width="24" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wjv-Tq-Dvd"/>
+        <segue reference="oH3-M4-YsB"/>
     </inferredMetricsTieBreakers>
 </document>

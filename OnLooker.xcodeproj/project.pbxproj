@@ -23,6 +23,7 @@
 		25E607C322FCBFC900E67B71 /* OnLookerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607C222FCBFC900E67B71 /* OnLookerTests.swift */; };
 		25E607CE22FCBFC900E67B71 /* OnLookerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607CD22FCBFC900E67B71 /* OnLookerUITests.swift */; };
 		25E607DC22FCC00900E67B71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607DB22FCC00900E67B71 /* MainViewController.swift */; };
+		25FD1BE223A95F5D00440ECE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD1BE123A95F5D00440ECE /* ShareViewController.swift */; };
 		576177A08521C000991F3E28 /* Pods_OnLooker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888CE25F63BCEB4454E23BD0 /* Pods_OnLooker.framework */; };
 		752D7D6948D3CC8609855B2D /* Pods_OnLookerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC4684A9E243F8A4C4C33B /* Pods_OnLookerTests.framework */; };
 		8675EF052C2B7467FD1F652C /* Pods_OnLookerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEFF955D6492711C5BFC27A /* Pods_OnLookerUITests.framework */; };
@@ -68,6 +69,7 @@
 		25E607CD22FCBFC900E67B71 /* OnLookerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnLookerUITests.swift; sourceTree = "<group>"; };
 		25E607CF22FCBFC900E67B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E607DB22FCC00900E67B71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		25FD1BE123A95F5D00440ECE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		2AEFF955D6492711C5BFC27A /* Pods_OnLookerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnLookerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C75D1286D6EB5B8301936FB /* Pods-OnLookerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnLookerTests.release.xcconfig"; path = "Target Support Files/Pods-OnLookerTests/Pods-OnLookerTests.release.xcconfig"; sourceTree = "<group>"; };
 		4F6C2AA5FCAAB597686F73C7 /* Pods-OnLookerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnLookerTests.debug.xcconfig"; path = "Target Support Files/Pods-OnLookerTests/Pods-OnLookerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		25E607A922FCBFC700E67B71 /* OnLooker */ = {
 			isa = PBXGroup;
 			children = (
+				25FD1BDF23A95F4800440ECE /* Share */,
 				252F5A3C234FDEF3008EC837 /* OnLooker.entitlements */,
 				25C706DB232DE662004EB9D0 /* Models */,
 				25AE9D63230497BC0003CBED /* Video */,
@@ -224,6 +227,22 @@
 				25E607CF22FCBFC900E67B71 /* Info.plist */,
 			);
 			path = OnLookerUITests;
+			sourceTree = "<group>";
+		};
+		25FD1BDF23A95F4800440ECE /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				25FD1BE023A95F4F00440ECE /* View */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		25FD1BE023A95F4F00440ECE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25FD1BE123A95F5D00440ECE /* ShareViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D6DB6E015A34A810EC47F735 /* Pods */ = {
@@ -469,6 +488,7 @@
 				25E607AB22FCBFC700E67B71 /* AppDelegate.swift in Sources */,
 				25646AC32353B3DC00345AAE /* BreakingTableViewCell.swift in Sources */,
 				25C706DD232DE688004EB9D0 /* Stream.swift in Sources */,
+				25FD1BE223A95F5D00440ECE /* ShareViewController.swift in Sources */,
 				252513FB2352776900190CA5 /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
