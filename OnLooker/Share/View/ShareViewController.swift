@@ -19,7 +19,7 @@ class ShareViewController: UIViewController, UITextFieldDelegate {
         
         self.streamTextField.delegate = self
         self.streamTextField.becomeFirstResponder()
-        streamTextField.layer.backgroundColor = UIColor.white.cgColor
+        streamTextField.layer.backgroundColor = UIColor.clear.cgColor
         streamTextField.layer.masksToBounds = false
         streamTextField.layer.shadowColor = UIColor(displayP3Red: 0/255.0, green: 106/255.0, blue: 181/255.0, alpha: 1.0).cgColor
         streamTextField.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)

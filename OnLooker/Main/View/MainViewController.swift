@@ -78,7 +78,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func unwindFromMaster(segue: UIStoryboardSegue) {
-        self.view.makeToast("Link has been shared\nblah\nblash", duration: 5.0, position: .top)
+        self.view.makeToast("Link has been shared with our team", duration: 5.0, position: .top)
     }
     
     @IBAction func shareButtonTapped(_ sender: Any) {
