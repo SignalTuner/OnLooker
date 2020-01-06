@@ -41,7 +41,6 @@ class ShareViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
         guard let streamText = textField.text, !streamText.isEmpty else { return false }
         
         ref = Database.database().reference(withPath: "submit")
@@ -61,14 +60,14 @@ class ShareViewController: UIViewController, UITextFieldDelegate {
         guard let key = self.ref.childByAutoId().key else { return false }
         let link = ["\(String(describing: key))": streamText]
         self.ref.child(key).setValue(link)
-        submittedData = true
-        
+        self.submittedData = true
+        print("textFieldShouldReturn Called")
+        textField.resignFirstResponder()
         self.dismiss(animated: true, completion: nil)
         return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.submittedData = true
     }
 
 

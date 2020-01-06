@@ -47,12 +47,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.streamList = newItems
 
             // Allows sections to be removed
-            if self.streamList[0].count == 0 && self.sections.count > 1 {
-                self.sections.removeFirst()
-                self.streamList.removeFirst()
-            } else if self.sections.count == 2 && self.streamList.count == 3 {
-                self.sections.insert(" ", at: 0)
-            }
+//            if self.streamList[0].count == 0 && self.sections.count > 1 {
+//                self.sections.removeFirst()
+//                self.streamList.removeFirst()
+//            } else if self.sections.count == 2 && self.streamList.count == 3 {
+//                self.sections.insert(" ", at: 0)
+//            }
 
 
             self.videoTableView.reloadData()
@@ -80,6 +80,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func unwindFromMaster(segue: UIStoryboardSegue) {
         if segue.source is ShareViewController {
             if let shareVC = segue.source as? ShareViewController {
+                print("shareVC.submittedData: \(shareVC.submittedData)")
                 if shareVC.submittedData {
                     self.view.makeToast("Link has been shared with our team", duration: 5.0, position: .top)
                 }
