@@ -13,6 +13,8 @@ import Toast_Swift
 class ShareViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var streamTextField: UITextField!
+    var ref: DatabaseReference!
+    var submittedData: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +60,32 @@ class ShareViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         guard let streamText = textField.text, !streamText.isEmpty else { return false }
-        print(streamText)
-        self.view.makeToast("This is a piece of toast")
+        
+        ref = Database.database().reference(withPath: "submit")
+        
+//        ref.observe(.value, with: { snapshot in
+//            for child in snapshot.children {
+//                if let dataSnap = child as? DataSnapshot {
+//                    if let streamList = dataSnap.value as? String {
+//                        print(streamList)
+//                        print(streamText)
+//                        print(snapshot.childrenCount)
+//                    }
+//                }
+//            }
+//        })
+        
+        guard let key = self.ref.childByAutoId().key else { return false }
+        let link = ["\(String(describing: key))": streamText]
+        self.ref.child(key).setValue(link)
+        submittedData = true
+        
         self.dismiss(animated: true, completion: nil)
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.submittedData = true
     }
 
 
