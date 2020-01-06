@@ -79,11 +79,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func unwindFromMaster(segue: UIStoryboardSegue) {
         if segue.source is ShareViewController {
-            print("level 1")
             if let shareVC = segue.source as? ShareViewController {
-                print("level 2")
                 if shareVC.submittedData {
-                    print("level 3")
                     self.view.makeToast("Link has been shared with our team", duration: 5.0, position: .top)
                 }
             }
