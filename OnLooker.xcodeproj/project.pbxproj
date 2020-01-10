@@ -23,6 +23,7 @@
 		25E607C322FCBFC900E67B71 /* OnLookerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607C222FCBFC900E67B71 /* OnLookerTests.swift */; };
 		25E607CE22FCBFC900E67B71 /* OnLookerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607CD22FCBFC900E67B71 /* OnLookerUITests.swift */; };
 		25E607DC22FCC00900E67B71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E607DB22FCC00900E67B71 /* MainViewController.swift */; };
+		25EE9D5F23C9097300D1B386 /* IdleBreakingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EE9D5E23C9097300D1B386 /* IdleBreakingTableViewCell.swift */; };
 		25FD1BE223A95F5D00440ECE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD1BE123A95F5D00440ECE /* ShareViewController.swift */; };
 		576177A08521C000991F3E28 /* Pods_OnLooker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888CE25F63BCEB4454E23BD0 /* Pods_OnLooker.framework */; };
 		752D7D6948D3CC8609855B2D /* Pods_OnLookerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC4684A9E243F8A4C4C33B /* Pods_OnLookerTests.framework */; };
@@ -69,6 +70,7 @@
 		25E607CD22FCBFC900E67B71 /* OnLookerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnLookerUITests.swift; sourceTree = "<group>"; };
 		25E607CF22FCBFC900E67B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E607DB22FCC00900E67B71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		25EE9D5E23C9097300D1B386 /* IdleBreakingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleBreakingTableViewCell.swift; sourceTree = "<group>"; };
 		25FD1BE123A95F5D00440ECE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		2AEFF955D6492711C5BFC27A /* Pods_OnLookerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnLookerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C75D1286D6EB5B8301936FB /* Pods-OnLookerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnLookerTests.release.xcconfig"; path = "Target Support Files/Pods-OnLookerTests/Pods-OnLookerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				252513FA2352776900190CA5 /* VideoTableViewCell.swift */,
 				25646AC22353B3DC00345AAE /* BreakingTableViewCell.swift */,
+				25EE9D5E23C9097300D1B386 /* IdleBreakingTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				25C706DD232DE688004EB9D0 /* Stream.swift in Sources */,
 				25FD1BE223A95F5D00440ECE /* ShareViewController.swift in Sources */,
 				252513FB2352776900190CA5 /* VideoTableViewCell.swift in Sources */,
+				25EE9D5F23C9097300D1B386 /* IdleBreakingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

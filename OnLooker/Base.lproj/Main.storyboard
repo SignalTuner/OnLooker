@@ -72,8 +72,56 @@
                                             <segue destination="wMp-fd-jgZ" kind="showDetail" id="wjv-Tq-Dvd"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="breakingVideoCellIdle" rowHeight="130" id="Lfz-PG-Bgm" customClass="IdleBreakingTableViewCell" customModule="OnLooker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="185.5" width="414" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lfz-PG-Bgm" id="rIn-em-nCo">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_streaming" translatesAutoresizingMaskIntoConstraints="NO" id="ucm-Rm-Dun">
+                                                    <rect key="frame" x="182.5" y="15" width="49" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="749-ve-rVN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Live Streams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-8w-swB">
+                                                    <rect key="frame" x="20" y="58" width="374" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enR-2G-29H">
+                                                    <rect key="frame" x="20" y="98" width="374" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="iyR-h1-cYl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live-status" translatesAutoresizingMaskIntoConstraints="NO" id="pf7-wy-iFi">
+                                                    <rect key="frame" x="370" y="11" width="24" height="16"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7vo-8w-swB" firstAttribute="leading" secondItem="rIn-em-nCo" secondAttribute="leadingMargin" id="63e-IK-TKW"/>
+                                                <constraint firstItem="7vo-8w-swB" firstAttribute="top" secondItem="pf7-wy-iFi" secondAttribute="bottom" constant="31" id="EXr-d0-YpS"/>
+                                                <constraint firstItem="ucm-Rm-Dun" firstAttribute="top" secondItem="rIn-em-nCo" secondAttribute="topMargin" constant="4" id="L1r-mc-BkJ"/>
+                                                <constraint firstItem="pf7-wy-iFi" firstAttribute="trailing" secondItem="rIn-em-nCo" secondAttribute="trailingMargin" id="LY0-du-7j1"/>
+                                                <constraint firstItem="enR-2G-29H" firstAttribute="top" secondItem="7vo-8w-swB" secondAttribute="bottom" constant="-2" id="Tin-mu-IMP"/>
+                                                <constraint firstItem="ucm-Rm-Dun" firstAttribute="top" secondItem="pf7-wy-iFi" secondAttribute="top" constant="4" id="UwX-zK-7rr"/>
+                                                <constraint firstItem="7vo-8w-swB" firstAttribute="trailing" secondItem="enR-2G-29H" secondAttribute="trailing" id="WSn-zw-HfI"/>
+                                                <constraint firstItem="7vo-8w-swB" firstAttribute="top" secondItem="ucm-Rm-Dun" secondAttribute="bottom" constant="9" id="hdV-hk-C7j"/>
+                                                <constraint firstItem="7vo-8w-swB" firstAttribute="leading" secondItem="enR-2G-29H" secondAttribute="leading" id="mCu-6H-v4T"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="enR-2G-29H" secondAttribute="bottom" id="qcw-6p-KF6"/>
+                                                <constraint firstItem="pf7-wy-iFi" firstAttribute="trailing" secondItem="7vo-8w-swB" secondAttribute="trailing" id="tyk-JQ-Leg"/>
+                                                <constraint firstItem="ucm-Rm-Dun" firstAttribute="centerX" secondItem="7vo-8w-swB" secondAttribute="centerX" id="vUd-HQ-bnB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subVideoCell" rowHeight="60" id="Wv1-No-Xqx" customClass="VideoTableViewCell" customModule="OnLooker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="185.5" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="315.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wv1-No-Xqx" id="ILM-Oc-xoQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
