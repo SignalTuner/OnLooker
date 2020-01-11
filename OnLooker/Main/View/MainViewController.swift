@@ -108,13 +108,6 @@ extension MainViewController {
         }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if section == 0 && sections.count == 3 {
-//            return UITableView.automaticDimension
-//        } else if section == 0 && sections.count == 2 {
-//            return 100
-//        } else {
-//            return UITableView.automaticDimension
-//        }
         return UITableView.automaticDimension
     }
 }

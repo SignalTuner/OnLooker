@@ -12,7 +12,7 @@ class IdleBreakingTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .red
+        self.backgroundColor = .gray
         self.layer.cornerRadius = 8
     }
 
