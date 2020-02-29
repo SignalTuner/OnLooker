@@ -2,7 +2,7 @@
  * @fileoverview Implementation of an immutable SortedMap using a Left-leaning
  * Red-Black Tree, adapted from the implementation in Mugs
  * (http://mads379.github.com/mugs/) by Mads Hartmann Jensen
- * (mads379@gmail.com).
+ * ().
  *
  * Original paper on Left-leaning Red-Black Trees:
  *   http://www.cs.princeton.edu/~rs/talks/LLRB/LLRB.pdf
