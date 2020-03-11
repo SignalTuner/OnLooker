@@ -85,6 +85,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - OpenTok (2.16.5)
   - Protobuf (3.9.2)
   - Toast-Swift (5.0.1)
 
@@ -92,27 +93,28 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Database
   - Firebase/Messaging
+  - OpenTok
   - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
     - FirebaseDatabase
     - FirebaseInstanceID
+    - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - leveldb-library
     - nanopb
-  trunk:
-    - FirebaseAnalyticsInterop
-    - FirebaseMessaging
+    - OpenTok
     - Protobuf
     - Toast-Swift
 
@@ -133,9 +135,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  OpenTok: 5d53a0f1375ee79579c2e40329bd5fa6925354ce
   Protobuf: 67fb42ba613def994e61854de2b3164f13790cc4
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 7541fb49fd8899ae304a97b0a9d242e3586f0529
+PODFILE CHECKSUM: 6ed8d15b99053013dcf4da03eed8a5fe7dc508bd
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.9.1

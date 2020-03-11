@@ -2376,6 +2376,16 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>https://tokbox.com/support/tos</string>
+			<key>License</key>
+			<string>Commercial</string>
+			<key>Title</key>
+			<string>OpenTok</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright 2008 Google Inc.  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

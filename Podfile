@@ -6,6 +6,7 @@ target 'OnLooker' do
   use_frameworks!
 
   # Pods for OnLooker
+  pod 'OpenTok'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
