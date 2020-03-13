@@ -24,9 +24,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Replace with your OpenTok API key
     var kApiKey = "46536092"
     // Replace with your generated session ID
-    var kSessionId = "1_MX40NjUzNjA5Mn5-MTU4Mzk2MDUzMjMzM35qMWVITW1jamNFVE1mSzNWS3JTNlJHSzF-fg"
+    var kSessionId = "1_MX40NjUzNjA5Mn5-MTU4NDA1NjY0MTMwNX56elZoa1RweHdiMEFDNU0reWlWTGs0K1Z-fg"
     // Replace with your generated token
-    var kToken = "T1==cGFydG5lcl9pZD00NjUzNjA5MiZzaWc9YTgyNzNjOTU1MDQ0MGYzN2MwMjE2Yzg2OTk0NjQ1YTViOTkwZWQ3ZTpzZXNzaW9uX2lkPTFfTVg0ME5qVXpOakE1TW41LU1UVTRNemsyTURVek1qTXpNMzVxTVdWSVRXMWphbU5GVkUxbVN6TldTM0pUTmxKSFN6Ri1mZyZjcmVhdGVfdGltZT0xNTgzOTY4NjQ1Jm5vbmNlPTAuNDQwODMzNjYzNDIwMzQ2MjQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU4Mzk5MDI0MyZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ=="
+    var kToken = "T1==cGFydG5lcl9pZD00NjUzNjA5MiZzaWc9OTEwYzMyNDRmMjJkNzljODU0YjJmNjQ5OGQ2MTJlMWY3MzEyMGY0YTpzZXNzaW9uX2lkPTFfTVg0ME5qVXpOakE1TW41LU1UVTROREExTmpZME1UTXdOWDU2ZWxab2ExUndlSGRpTUVGRE5VMHJlV2xXVEdzMEsxWi1mZyZjcmVhdGVfdGltZT0xNTg0MDU2NjYxJm5vbmNlPTAuMDY3NDk3NDc2MzQzMDMyOTQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU4NDY2MTQ2MCZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ=="
     
     var session: OTSession?
     var publisher: OTPublisher?
